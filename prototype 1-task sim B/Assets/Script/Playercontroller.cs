@@ -25,8 +25,8 @@ public float vInput;
        vInput=Input.GetAxis("Vertical");
        
        // Makes the vehicle go left and right
-       transform. Translate(Vector3.right * turnSpeed * Time.deltaTime * hInput); 
+       transform. Rotate(Vector3.up,  turnSpeed * hInput * Time.deltaTime); 
        // Makes the vehicle go forward and back
-       transform. Translate(Vector3. forward * speed* Time.deltaTime* vInput);
+       transform. Translate(Vector3. forward * speed* Time.deltaTime * vInput);
     }
 }
