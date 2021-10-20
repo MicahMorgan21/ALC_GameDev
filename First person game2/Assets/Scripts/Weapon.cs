@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public float bulletSpeed;
     public float shootrate;
     public float lastShootTime;
-    private bool isPlayer
+    private bool isPlayer;
 
     void Awake ()
 
@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
     // can we shooot a bullet
     public bool CanShoot()
     {
-        if(Time.Time - lastShootTime> = shootRate)
+        if(Time.time - lastShootTime >= shootRate)
         {
             if(curAmmo > 0 || infiniteAmmo == true)
             {
@@ -40,13 +40,15 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
+        // Adjust shoot time and reduce ammo by one
         lastShootTime = Time.time;
         curAmmo --;
 
-        GameObject bullet = Instantiate(bulletProjectile, muxxle.position, muzzle.rotation)
+        // Create projectile
+        GameObject bullet = Instantiate(bulletProjectile, muxzzle.position, muzzle.rotation);
 
         // Set Velocity of bulletProjectile
-        bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed
+        bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
     }
     // Start is called before the first frame update
     void Start()
