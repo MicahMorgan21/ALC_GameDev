@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject bulletProjectile;
+    public ObjectPool bulletPool;
     public Transform muzzle;
 
     public int curAmmo;
@@ -45,8 +45,11 @@ public class Weapon : MonoBehaviour
         // Adjust shoot time and reduce ammo by one
         lastShootTime = Time.time;
         curAmmo --; 
-        // Create projectile 
-        GameObject bullet = Instantiate(bulletProjectile, muzzle.position, muzzle.rotation);
+        
+        
+        GameObject bullet = bulletPool.GetObject();
+        bullet.transform.position = muzzle.position;
+        bullet.transform.rotation = muzzle.rotation;
 
         // Set Velocity of bulletProjectile
         bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
