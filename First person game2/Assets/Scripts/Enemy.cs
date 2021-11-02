@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using System.Linq;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,9 +22,11 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        curHP = maxHP;
         // Gather the Components
         weapon = GetComponent<Weapon>();
         target = FindObjectOfType<PlayerController>().gameObject;
+        InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
 
     void UpdatePath()
@@ -33,7 +37,7 @@ public class Enemy : MonoBehaviour
         NavMesh.CalculatePath(transform.position, target.transform.position, NavMesh.AllAreas, navMeshPath);
 
         // Save calculated path to the list
-        path = naveMeshPath.corners.ToList();
+        path = navMeshPath.corners.ToList();
     }
     void ChaseTarget()
     {
@@ -47,9 +51,40 @@ public class Enemy : MonoBehaviour
             path.RemoveAt(0);
     }
 
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+
+        if(curHP <= 0)
+            Die();
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        // Look at Target
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+
+        transform.eulerAngles = Vector3.up * angle;
+
+        // Get distance from enemy to player/target
+        float dist = Vector3.Distance(transform.position, target.transform.position);
+
+        if(dist <= attackRange)
+        {
+            if(weapon.CanShoot())
+            weapon.Shoot();
+        }
+        else
+        {
+            ChaseTarget();
+        }
         
     }
 }
