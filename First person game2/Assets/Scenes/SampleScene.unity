@@ -1774,7 +1774,7 @@ GameObject:
   - component: {fileID: 1039122677}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1791,8 +1791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831b97e05b76f47cfa24602de0ea6daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  jumpForce: 25
+  curHP: 0
+  maxHP: 0
+  moveSpeed: 15
+  jumpForce: 20
   lookSensitivity: 5
   maxLookX: 45
   minLookX: -45
@@ -1907,8 +1909,8 @@ MonoBehaviour:
   curAmmo: 20
   maxAmmo: 200
   infiniteAmmo: 1
-  bulletSpeed: 5
-  shootRate: -100
+  bulletSpeed: 50
+  shootRate: 0.5
   lastShootTime: 0
 --- !u!114 &1039122677
 MonoBehaviour:
@@ -1942,7 +1944,7 @@ GameObject:
   - component: {fileID: 1082111669}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2090,7 +2092,7 @@ MonoBehaviour:
   curHP: 50
   maxHP: 50
   ScoreToGive: 0
-  moveSpeed: 0
+  moveSpeed: 10
   attackRange: 20
   yPathOffset: 1
 --- !u!1 &1138144282
