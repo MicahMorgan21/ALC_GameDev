@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Movement
+    [Header("Stats")]
+    public int curHP;
+    public int maxHP;
+
+    [Header("Movement")]
     public float moveSpeed; // How fast the player moves
     public float jumpForce; // How high the player jumps
-    // Camera
+    [Header("Camera")]
     public float lookSensitivity; // Mouse movement sensitivity
     public float maxLookX;  // Lowest down we can look
     public float minLookX;  // Highest up we can look
     private float rotX;     // Current x rotation of the camera
-    //Components
+    [Header("Components")]
     private Camera cam;
     private Rigidbody rb;
 
@@ -25,6 +29,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         weapon = GetComponent<Weapon>();
+
+        // Disable cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -76,5 +83,15 @@ public class PlayerController : MonoBehaviour
         // Applying the rotation to Camera
         cam.transform.localRotation = Quaternion.Euler(-rotX, 0, 0);
         transform.eulerAngles += Vector3.up * y;
+    }
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        if(curHP <= 0)
+            Die();
+    }
+    void Die()
+    {
+        
     }
 }
