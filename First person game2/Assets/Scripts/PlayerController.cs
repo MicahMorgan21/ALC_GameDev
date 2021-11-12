@@ -92,6 +92,6 @@ public class PlayerController : MonoBehaviour
     }
     void Die()
     {
-        
+        print("Game Over!!!");
     }
 }
