@@ -9,9 +9,9 @@ public class GameUI : MonoBehaviour
 {
     [Header("HUD")]
 
-    public TextMeshProGUI scoreText;
+    public TextMeshProUGUI scoreText;
 
-    public TextMeshProGUI ammoText;
+    public TextMeshProUGUI ammoText;
 
     public Image healthBarFill;
 
@@ -22,9 +22,9 @@ public class GameUI : MonoBehaviour
 
     public GameObject endGameScreen;
 
-    public TextMeshProGUI endGameHeaderText;
+    public TextMeshProUGUI endGameHeaderText;
 
-    public TextMeshProGUI endGameScoreText;
+    public TextMeshProUGUI endGameScoreText;
 
     // Instance
 
@@ -51,7 +51,7 @@ public class GameUI : MonoBehaviour
 
     public void UpdateHealthBar(int curHP, int maxHP)
     {
-        healthBarFill.FillAmount = (float)curHP / (float)maxHP;
+        healthBarFill.fillAmount = (float)curHP / (float)maxHP;
     }
 
      public void UpdateScoreText(int score)
@@ -77,7 +77,20 @@ public class GameUI : MonoBehaviour
          endGameScoreText.text = "<b>Score</b>\n" + score;
      }
 
-     public void
+     public void OnResumeButton()
+     {
+         GameManager.instance.TogglePausedGame();
+     }
+
+     public void OnRestartButton()
+     {
+         SceneManager.LoadScene("Game");
+     }
+
+     public void OnMenuButton()
+     {
+         SceneManager.LoadScene("Menu");
+     }
 
 
 }

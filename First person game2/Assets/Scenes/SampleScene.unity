@@ -969,6 +969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 334244803}
   - component: {fileID: 334244802}
+  - component: {fileID: 334244804}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -988,6 +989,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddf0ef68155c48a9b77145dfd5b3e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+  ammoText: {fileID: 0}
+  healthBarFill: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  endGameScreen: {fileID: 0}
+  endGameHeaderText: {fileID: 0}
+  endGameScoreText: {fileID: 0}
 --- !u!4 &334244803
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,6 +1010,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &334244804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334244801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f9189455e5e401788b296fed5994e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &341878680
 GameObject:
   m_ObjectHideFlags: 0
