@@ -59,7 +59,7 @@ public class GameUI : MonoBehaviour
          scoreText.text = "Score: " + score;
      }
 
-     public void UpdateAmoText( int curAmmo, int maxAmmo)
+     public void UpdateAmmoText( int curAmmo, int maxAmmo)
      {
          ammoText.text = "Ammo: " + curAmmo + " / " + maxAmmo;
      }
@@ -79,7 +79,7 @@ public class GameUI : MonoBehaviour
 
      public void OnResumeButton()
      {
-         GameManager.instance.TogglePausedGame();
+         GameManager.instance.TogglePauseGame();
      }
 
      public void OnRestartButton()

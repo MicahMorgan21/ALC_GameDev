@@ -27,17 +27,20 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetButton("Cancel"))
         {
-            TogglePausedGame();
+            TogglePauseGame();
         }
     }
 
-    public void ToggglePausedGame()
+    public void TogglePauseGame()
     {
         gamePaused = !gamePaused;
         Time.timeScale = gamePaused == true ? 0.0f : 1.0f;
 
         //Toggle Pause Menu
         GameUI.instance.TogglePauseMenu(gamePaused);
+
+        //Toggle Mouse Cursor
+        Cursor.lockState = gamePaused == true ? CursorLockMde.None : CursorLockMode.Locked;
     }
 
     public void AddScore(int score)

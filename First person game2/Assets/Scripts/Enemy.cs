@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     private Weapon weapon;
     private GameObject target;
 
+    private Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour
         // Gather the Components
         weapon = GetComponent<Weapon>();
         target = FindObjectOfType<PlayerController>().gameObject;
+        rb = GetComponent<Rigidbody>();
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
 
