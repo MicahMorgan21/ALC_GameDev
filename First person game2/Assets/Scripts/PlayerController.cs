@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         //Initialize the UI
         GameUI.instance.UpdateHealthBar(curHP, maxHP);
         GameUI.instance.UpdateScoreText(0);
-        GameUI.instance.UpdateAmmoText(weapons.curAmmo, weapons.maxAmmo);
+        GameUI.instance.UpdateAmmoText(weapon.curAmmo, weapon.maxAmmo);
     }
 
     // Update is called once per frame
