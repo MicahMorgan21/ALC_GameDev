@@ -110,3 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   value: 10
+  rotationSpeed: 0
+  bobSpeed: 0
+  bobHeight: 0
+  pickupSfx: {fileID: 8300000, guid: a20f8e975852f4c258a48454ea054b64, type: 3}

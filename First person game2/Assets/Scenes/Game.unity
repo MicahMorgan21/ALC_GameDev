@@ -3257,6 +3257,7 @@ MonoBehaviour:
   bulletSpeed: 75
   shootRate: 0.25
   lastShootTime: 0
+  shootSfx: {fileID: 0}
 --- !u!114 &1039122677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3281,7 +3282,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5119e79557a52491c9e713cfb562450a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6664,7 +6665,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5119e79557a52491c9e713cfb562450a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
