@@ -7,7 +7,7 @@ public class MenuUI : MonoBehaviour
 
     public void OnPlayButton()
     {
-        SceneManager.LoadScene("Game");
+        
     }
 
     public void OnQuitButton()
